@@ -1,0 +1,20 @@
+{
+  "favorites": [
+    {
+      "id": 1,
+      "track_id": "1261234",
+      "title": "Electro Vibes",
+      "artist_name": "DJ Freedom",
+      "audio_url": "https://mp3d.jamendo.com/?trackid=1261234&token=demo_token",
+      "image_url": "https://imgjam.com/albums/s123/001/cover.jpg"
+    },
+    {
+      "id": 2,
+      "track_id": "1298765",
+      "title": "Sunset Dream",
+      "artist_name": "Luna Flow",
+      "audio_url": "https://mp3d.jamendo.com/?trackid=1298765&token=demo_token",
+      "image_url": "https://imgjam.com/albums/s456/002/cover.jpg"
+    }
+  ]
+}
