@@ -1,37 +1,22 @@
 import Container from "@mui/material/Container";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Navbar from "./Navbar";
 import Search from "./Search";
-
-// function App() {
-//   return (
-//     <Router>
-//       <div>
-//         <Navbar />
-//         <Container>
-//           <Switch>
-//             {/* <Route path="/about">
-//               <About />
-//             </Route>
-//             <Route path="/users">
-//               <Users />
-//             </Route> */}
-//             <Route path="/">
-//               <Home />
-//             </Route>
-//           </Switch>
-//         </Container>
-//       </div>
-//     </Router>
-//   );
-// }
+import Home from "./Home";
 
 function App() {
   return (
-    <Container>
-      <h1>Welcome to Power Music</h1>
-      <Search />
-    </Container>
+    <Router>
+      <div>
+        <Navbar />
+        <Container>
+          <Routes>
+            <Route path="/search" element={<Search />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Container>
+      </div>
+    </Router>
   );
 }
 
