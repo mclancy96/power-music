@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import Search from "./Search";
 
 // function App() {
 //   return (
@@ -29,6 +30,7 @@ function App() {
   return (
     <Container>
       <h1>Welcome to Power Music</h1>
+      <Search />
     </Container>
   );
 }
