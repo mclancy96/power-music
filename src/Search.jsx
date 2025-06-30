@@ -13,11 +13,12 @@ const Search = () => {
   // const parseSearchResult = (response) => {
 
   // }
-  const searchForSong = () => {
+  const searchForSong = (e) => {
+    e.preventDefault();
     // fetch(apiUrl)
     //   .then((r) => r.json())
     //   .then(parseSearchResult);
-    setSearchResults(trackData);
+    setSearchResults(trackData.results);
   };
   return (
     <div>
@@ -25,16 +26,17 @@ const Search = () => {
       <form onSubmit={searchForSong}>
         <FormGroup>
           <InputLabel>Enter Song Name</InputLabel>
-          <Input
-            type="text"
-            required={true}
+          {/* <Input type="text" /> */}
+          <input
+            required
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-          />
+          ></input>
         </FormGroup>
         <Button type="submit">Submit</Button>
       </form>
-      {searchResults.length > 0 && <SearchResults {...{ searchResults }} />}
+      <hr />
+      <SearchResults {...{ searchResults }} />
     </div>
   );
 };
