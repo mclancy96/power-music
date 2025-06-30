@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# 🎧 Power Music
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Power Music is a simple and interactive music discovery app powered by the [Jamendo API](https://developer.jamendo.com/v3.0/docs). Users can search royalty-free music, preview tracks, save favorites, and share their discoveries—all from a sleek, user-friendly interface.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+### MVP
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🔍 **Search for Music** – Enter keywords to explore royalty-free tracks by title, artist, or genre.
+- ▶️ **Play Music Previews** – Stream 30-second audio previews directly from search results.
+- 💾 **Save Favorites** – Save and revisit your favorite tracks across sessions.
+- 🔗 **Shareable Song Links** – Share songs with friends via direct or generated links.
+- 🧮 **Sort Search Results** – Sort music by popularity, release date, or duration using Jamendo API parameters.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Stretch Goals
 
-### `npm test`
+- 🏷️ **Tag-Based Filtering** – Refine searches using tags (e.g., chill, upbeat, acoustic).
+- 📄 **About Page** – Explain the app and Jamendo’s role as a music provider.
+- 🎛️ **Mini Audio Player** – A persistent audio player with playback controls.
+- 🌗 **Light/Dark Theme Toggle** – Switch between light and dark UI themes (saved in localStorage).
+- ⌨️ **Keyboard Navigation & Shortcuts** – Use keyboard controls for an efficient experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📁 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Built with **HTML**, **CSS**, and **JavaScript**
+- Uses the **Jamendo API** for music discovery
+- Interacts with a mock backend (`json-server`) for saving favorites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend
 
-### `npm run eject`
+- Powered by `json-server`
+- Stores favorited songs in a `db.json` file
+- RESTful routes for basic CRUD operations
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+json-server --watch db.json --port 3001
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📊 API Endpoints
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Jamendo (Music Data)
 
-## Learn More
+- `GET https://api.jamendo.com/v3.0/tracks/?client_id=YOUR_CLIENT_ID&search=...`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### JSON Server (Favorites)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `GET /favorites`
+- `POST /favorites`
+- `DELETE /favorites/:id`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🧪 How to Run Locally
 
-### Analyzing the Bundle Size
+### 1. Clone the Repos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+git clone https://github.com/yourname/power-music-frontend.git
+git clone https://github.com/yourname/power-music-backend.git
+```
 
-### Making a Progressive Web App
+### 2. Start Backend (JSON Server)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+cd power-music-backend
+npm install -g json-server #if you haven't done so already
+npm run server
+```
 
-### Advanced Configuration
+### 3. Open Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+cd power-music
+npm i && npm start
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔗 Useful Links
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Jamendo Developer Docs](https://developer.jamendo.com/v3.0/docs)
+- [json-server Docs](https://github.com/typicode/json-server)
