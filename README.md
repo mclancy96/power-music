@@ -70,7 +70,7 @@ git clone https://github.com/yourname/power-music-backend.git
 ### 2. Start Backend (JSON Server)
 
 ```bash
-cd power-music-backend
+cd power-music
 npm install -g json-server #if you haven't done so already
 npm run server
 ```
