@@ -10,6 +10,9 @@ const SearchResults = ({
   favorites,
   onFavoriteButtonClick,
   isTrackInFavorites,
+  player,
+  togglePlayer,
+  queueTrackAndPlay
 }) => {
   return (
     <>
@@ -37,6 +40,9 @@ const SearchResults = ({
                   favorites,
                   onFavoriteButtonClick,
                   isTrackInFavorites,
+                  player,
+                  togglePlayer,
+                  queueTrackAndPlay
                 }}
               />
             ))}

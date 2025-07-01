@@ -8,6 +8,9 @@ const SearchResult = ({
   favorites,
   onFavoriteButtonClick,
   isTrackInFavorites,
+  player,
+  togglePlayer,
+  queueTrackAndPlay,
 }) => {
   return (
     <TableRow>
@@ -18,7 +21,9 @@ const SearchResult = ({
       <TableCell>{searchResult.album_name}</TableCell>
       <TableCell>{searchResult.releasedate}</TableCell>
       <TableCell align="center">
-        <PreviewButton {...{ track: searchResult }} />
+        <PreviewButton
+          {...{ track: searchResult, player, togglePlayer, queueTrackAndPlay }}
+        />
       </TableCell>
       <TableCell align="center">
         <FavoriteButton
@@ -27,6 +32,8 @@ const SearchResult = ({
             favorites,
             onFavoriteButtonClick,
             isTrackInFavorites,
+            player,
+            togglePlayer,
           }}
         />
       </TableCell>

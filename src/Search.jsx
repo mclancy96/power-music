@@ -9,7 +9,7 @@ import {
 import SearchResults from "./SearchResults";
 import trackData from "./sample_responses/tracks.json";
 
-const Search = () => {
+const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
   // const apiUrl = process.env.REACT_APP_API_URL;
   const favoriteUrl = "http://localhost:3001/favorites/";
   const [searchValue, setSearchValue] = useState("");
@@ -104,6 +104,9 @@ const Search = () => {
           favorites,
           onFavoriteButtonClick,
           isTrackInFavorites,
+          player,
+          togglePlayer,
+          queueTrackAndPlay
         }}
       />
     </div>

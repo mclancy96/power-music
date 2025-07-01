@@ -1,15 +1,29 @@
-import { PlayArrow } from "@mui/icons-material";
+import { PlayArrow, PlayDisabled, Pause } from "@mui/icons-material";
 import { Button } from "@mui/material";
 
-const PreviewButton = ({ track }) => {
-  const playSong = () => {
-    console.log("Playing", track.name);
+const PreviewButton = ({ track, player, togglePlayer, queueTrackAndPlay }) => {
+  const handleClick = () => {
+    if (player.track && player.track.id !== track.id) {
+      queueTrackAndPlay(track);
+    } else {
+      togglePlayer();
+    }
   };
   return (
     <div>
-      <Button onClick={playSong}>
-        <PlayArrow />
-      </Button>
+      {track.audio ? (
+        <Button onClick={handleClick} variant="outlined">
+          {player.isPlaying && player.track.id === track.id ? (
+            <Pause />
+          ) : (
+            <PlayArrow />
+          )}
+        </Button>
+      ) : (
+        <Button disabled={true} variant="outlined">
+          <PlayDisabled />
+        </Button>
+      )}
     </div>
   );
 };
