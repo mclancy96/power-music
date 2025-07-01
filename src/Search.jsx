@@ -7,14 +7,16 @@ import {
   OutlinedInput,
 } from "@mui/material";
 import SearchResults from "./SearchResults";
-import trackData from "./sample_responses/tracks.json";
+import SearchSort from "./SearchSort";
 
 const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
-  // const apiUrl = process.env.REACT_APP_API_URL;
+  const apiBaseUrl = "https://api.jamendo.com/v3.0/tracks/";
   const favoriteUrl = "http://localhost:3001/favorites/";
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [sortMethod, setSortMethod] = useState("relevance");
+
   const isTrackInFavorites = (track) => {
     return favorites.find((fave) => fave.track_id === track.id);
   };
@@ -65,38 +67,65 @@ const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
         return false;
       });
   };
-  // const parseSearchResult = (response) => {
 
-  // }
+  const parseSearchResult = (response) => {
+    setSearchResults(response.results || []);
+  };
+
+  const updateSortMethodOnChange = (value) => {
+    setSortMethod(value);
+  };
+
   const searchForSong = (e) => {
     e.preventDefault();
-    // fetch(apiUrl)
-    //   .then((r) => r.json())
-    //   .then(parseSearchResult);
-    setSearchResults(trackData.results);
+    if (!searchValue.trim()) return;
+
+    const url = `${apiBaseUrl}?client_id=${
+      process.env.REACT_APP_API_ID
+    }&format=json&limit=20&namesearch=${encodeURIComponent(
+      searchValue,
+    )}&fullcount=true&order=${sortMethod}`;
+
+    fetch(url)
+      .then((r) => r.json())
+      .then(parseSearchResult);
   };
+
   return (
     <div>
       <h1>Search for Song</h1>
-      <form onSubmit={searchForSong}>
-        <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-search">Search</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-search"
-            type="text"
-            endAdornment={
-              <InputAdornment position="end">
-                <Button type="submit" variant="contained">
-                  Search
-                </Button>
-              </InputAdornment>
-            }
-            label="Search"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        </FormControl>
-      </form>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <SearchSort {...{ sortMethod, updateSortMethodOnChange }} />
+        <form onSubmit={searchForSong} style={{ flexGrow: 1 }}>
+          <FormControl fullWidth sx={{ m: 1 }}>
+            <InputLabel htmlFor="outlined-adornment-search">Search</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-search"
+              type="text"
+              endAdornment={
+                <InputAdornment position="end">
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    disabled={searchValue.trim().length < 2}
+                  >
+                    Search
+                  </Button>
+                </InputAdornment>
+              }
+              label="Search"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              error={searchValue.trim().length === 1}
+              helperText={
+                searchValue.trim().length === 1
+                  ? "Minimum 2 characters required"
+                  : ""
+              }
+            />
+          </FormControl>
+        </form>
+      </div>
       <hr />
       <SearchResults
         {...{
@@ -106,7 +135,7 @@ const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
           isTrackInFavorites,
           player,
           togglePlayer,
-          queueTrackAndPlay
+          queueTrackAndPlay,
         }}
       />
     </div>

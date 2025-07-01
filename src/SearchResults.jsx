@@ -35,6 +35,7 @@ const SearchResults = ({
                 <TableCell align="center">Artist</TableCell>
                 <TableCell align="center">Album</TableCell>
                 <TableCell align="center">Released</TableCell>
+                <TableCell align="center">Duration</TableCell>
                 <TableCell align="center">Preview</TableCell>
                 <TableCell align="center">Favorite</TableCell>
               </TableRow>

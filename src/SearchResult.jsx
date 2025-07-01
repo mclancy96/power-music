@@ -2,6 +2,7 @@ import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import FavoriteButton from "./FavoriteButton";
 import PreviewButton from "./PreviewButton";
+import { formatDuration } from "./helpers/formatters";
 
 const SearchResult = ({
   searchResult,
@@ -12,6 +13,10 @@ const SearchResult = ({
   togglePlayer,
   queueTrackAndPlay,
 }) => {
+  const formattedDuration =
+    searchResult.duration && !isNaN(searchResult.duration)
+      ? formatDuration(searchResult.duration)
+      : searchResult.duration;
   return (
     <TableRow>
       <TableCell>
@@ -20,6 +25,7 @@ const SearchResult = ({
       <TableCell>{searchResult.artist_name}</TableCell>
       <TableCell>{searchResult.album_name}</TableCell>
       <TableCell>{searchResult.releasedate}</TableCell>
+      <TableCell>{formattedDuration}</TableCell>
       <TableCell align="center">
         <PreviewButton
           {...{ track: searchResult, player, togglePlayer, queueTrackAndPlay }}
