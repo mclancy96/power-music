@@ -51,7 +51,7 @@ function App() {
 
   const queueTrackAndPlay = (track) => {
     if (player.isPlaying) pauseSong();
-    setPlayer((prevPlayer) => ({ ...prevPlayer, track }));
+    setPlayer((prevPlayer) => ({ ...prevPlayer, track, audio: {} }));
     setShouldPlay(true);
   };
   return (
