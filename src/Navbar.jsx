@@ -64,7 +64,7 @@ const Navbar = () => {
         <BottomNavigationAction
           component={Link}
           to="/search"
-          label="Searches"
+          label="Search"
           icon={<SearchIcon />}
         />
       </BottomNavigation>

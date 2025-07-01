@@ -6,7 +6,11 @@ import {
   ListItem,
   ListItemText,
   Skeleton,
+  Button,
+  Menu,
+  MenuItem,
 } from "@mui/material";
+import { Share } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import PreviewButton from "./PreviewButton";
@@ -29,6 +33,15 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
     width: "100%",
     height: "auto",
     maxWidth: { xs: "100%", md: "50%" },
+  };
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -79,11 +92,11 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
         >
           <Box
             sx={{
-              position: 'relative',
+              position: "relative",
               width: { xs: "100%", md: "50%" },
-              '&:hover .hover-content': {
-                opacity: 1
-              }
+              "&:hover .hover-content": {
+                opacity: 1,
+              },
             }}
           >
             <Box
@@ -92,7 +105,7 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                display: "block"
+                display: "block",
               }}
               alt="Track artwork"
               src={track.album_image}
@@ -100,15 +113,14 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
             <Box
               className="hover-content"
               sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
                 opacity: 0,
-                transition: 'opacity 0.3s ease',
-                backgroundColor: 'rgba(0,0,0,0.7)',
+                transition: "opacity 0.2s ease",
+                backgroundColor: "rgba(255, 255, 255, 0.27)",
                 padding: 2,
-                borderRadius: 1
               }}
             >
               <PreviewButton
@@ -122,6 +134,45 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
           <Box sx={{ width: { xs: "100%", md: "50%" } }}>
             <Typography variant="h4" gutterBottom>
               {track.name}
+              <div>
+                <Button
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  variant="contained"
+                >
+                  Share <Share />
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  slotProps={{
+                    list: {
+                      "aria-labelledby": "basic-button",
+                    },
+                  }}
+                >
+                  <MenuItem
+                    onClick={() => {
+                      const trackUrl = track.shareurl;
+                      navigator.clipboard
+                        .writeText(trackUrl)
+                        .then(() => {
+                          setAnchorEl(null);
+                        })
+                        .catch((err) => {
+                          console.error("Failed to copy: ", err);
+                        });
+                    }}
+                  >
+                    Copy Link
+                  </MenuItem>
+                </Menu>
+              </div>
             </Typography>
             <List>
               <ListItem>
