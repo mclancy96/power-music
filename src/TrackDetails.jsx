@@ -110,6 +110,18 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
               alt="Track artwork"
               src={track.album_image}
             />
+            <Typography
+              variant="caption"
+              sx={{
+                display: "block",
+                textAlign: "center",
+                mt: 1,
+                fontStyle: "italic",
+                color: "text.secondary",
+              }}
+            >
+              Hover to play
+            </Typography>
             <Box
               className="hover-content"
               sx={{
@@ -119,8 +131,9 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
                 transform: "translate(-50%, -50%)",
                 opacity: 0,
                 transition: "opacity 0.2s ease",
-                backgroundColor: "rgba(255, 255, 255, 0.27)",
+                backgroundColor: "rgba(255, 255, 255, 0.56)",
                 padding: 2,
+                textAlign: "center",
               }}
             >
               <PreviewButton
