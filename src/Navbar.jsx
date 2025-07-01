@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <Box
       sx={{
-        width: 1000,
+        width: '100%',
         margin: "0 auto",
         display: "flex",
         justifyContent: "center",
