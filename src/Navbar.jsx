@@ -1,17 +1,62 @@
 import { NavLink as Link } from "react-router";
+import { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Cottage from "@mui/icons-material/Cottage";
+import SearchIcon from "@mui/icons-material/Search";
+import { useLocation } from "react-router";
 
 const Navbar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const getCurrentPathIndex = (currentPathValue) => {
+    switch (currentPathValue) {
+      case "/search":
+        return 1;
+      default:
+        return 0;
+    }
+  };
+
+  const [value, setValue] = useState(() => {
+    return getCurrentPathIndex(currentPath);
+  });
+
+  useEffect(() => {
+    setValue(getCurrentPathIndex(currentPath));
+  }, [currentPath]);
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/search">Search</Link>
-        </li>
-      </ul>
-    </nav>
+    <Box
+      sx={{
+        width: 1000,
+        margin: "0 auto",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      >
+        <BottomNavigationAction
+          component={Link}
+          to="/"
+          label="Home"
+          icon={<Cottage />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/search"
+          label="Searches"
+          icon={<SearchIcon />}
+        />
+      </BottomNavigation>
+    </Box>
   );
 };
 
