@@ -1,7 +1,7 @@
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import Play from "@mui/icons-material/PlayCircle";
 import FavoriteButton from "./FavoriteButton";
+import PreviewButton from "./PreviewButton";
 
 const SearchResult = ({
   searchResult,
@@ -18,9 +18,7 @@ const SearchResult = ({
       <TableCell>{searchResult.album_name}</TableCell>
       <TableCell>{searchResult.releasedate}</TableCell>
       <TableCell align="center">
-        <button>
-          <Play /> preview
-        </button>
+        <PreviewButton {...{ track: searchResult }} />
       </TableCell>
       <TableCell align="center">
         <FavoriteButton
