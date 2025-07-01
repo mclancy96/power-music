@@ -3,7 +3,12 @@ import TableRow from "@mui/material/TableRow";
 import Play from "@mui/icons-material/PlayCircle";
 import FavoriteButton from "./FavoriteButton";
 
-const SearchResult = ({ searchResult, favorites, onFavoriteButtonClick }) => {
+const SearchResult = ({
+  searchResult,
+  favorites,
+  onFavoriteButtonClick,
+  isTrackInFavorites,
+}) => {
   return (
     <TableRow>
       {/* make first one a link to the song detail page */}
@@ -19,7 +24,12 @@ const SearchResult = ({ searchResult, favorites, onFavoriteButtonClick }) => {
       </TableCell>
       <TableCell align="center">
         <FavoriteButton
-          {...{ track: searchResult, favorites, onFavoriteButtonClick }}
+          {...{
+            track: searchResult,
+            favorites,
+            onFavoriteButtonClick,
+            isTrackInFavorites,
+          }}
         />
       </TableCell>
     </TableRow>

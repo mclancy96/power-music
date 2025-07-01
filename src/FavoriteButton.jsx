@@ -1,13 +1,18 @@
 import { Button } from "@mui/material";
 import Heart from "@mui/icons-material/Favorite";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EmptyHeart from "@mui/icons-material/FavoriteBorder";
 
-const FavoriteButton = ({ track, favorites, onFavoriteButtonClick }) => {
-  const isTrackInFavorites = (track) => {
-    return favorites.some((fave) => fave.track_id === track.id);
-  };
+const FavoriteButton = ({
+  track,
+  favorites,
+  onFavoriteButtonClick,
+  isTrackInFavorites,
+}) => {
   const [isFavorited, setIsFavorited] = useState(isTrackInFavorites(track));
+  useEffect(() => {
+    setIsFavorited(isTrackInFavorites(track));
+  }, [favorites]);
   return (
     <div
       onClick={() => {

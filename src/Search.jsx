@@ -8,14 +8,60 @@ import Button from "@mui/material/Button";
 
 const Search = () => {
   // const apiUrl = process.env.REACT_APP_API_URL;
+  const favoriteUrl = "http://localhost:3001/favorites/";
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const isTrackInFavorites = (track) => {
+    return favorites.find((fave) => fave.track_id === track.id);
+  };
   useEffect(() => {
-    fetch("http://localhost:3001/favorites")
+    fetch(favoriteUrl)
       .then((r) => r.json())
       .then(setFavorites);
-  }, [favorites]);
+  }, []);
+  const onFavoriteButtonClick = (track) => {
+    const foundTrackFavorite = isTrackInFavorites(track);
+    foundTrackFavorite
+      ? deleteTrackFromFavorites(foundTrackFavorite)
+      : addTrackToFavorites(track);
+  };
+
+  const deleteTrackFromFavorites = (favorite) => {
+    fetch(favoriteUrl + favorite.id, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => {
+        setFavorites((faves) =>
+          faves.filter((fave) => fave.id !== favorite.id),
+        );
+      })
+      .catch(() => {
+        return false;
+      });
+  };
+
+  const addTrackToFavorites = (track) => {
+    fetch(favoriteUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        track_id: track.id,
+        title: track.name,
+        artist_name: track.artist_name,
+        audio_url: track.audio,
+        image_url: track.image,
+      }),
+    })
+      .then((r) => r.json())
+      .then((returnedTrack) => {
+        setFavorites((faves) => [...faves, returnedTrack]);
+      })
+      .catch(() => {
+        return false;
+      });
+  };
   // const parseSearchResult = (response) => {
 
   // }
@@ -26,9 +72,6 @@ const Search = () => {
     //   .then(parseSearchResult);
     setSearchResults(trackData.results);
   };
-  const onFavoriteButtonClick = (track) => {
-    return fetch
-  }
   return (
     <div>
       <h1>Search for Song</h1>
@@ -45,7 +88,14 @@ const Search = () => {
         <Button type="submit">Submit</Button>
       </form>
       <hr />
-      <SearchResults {...{ searchResults, favorites, onFavoriteButtonClick }} />
+      <SearchResults
+        {...{
+          searchResults,
+          favorites,
+          onFavoriteButtonClick,
+          isTrackInFavorites,
+        }}
+      />
     </div>
   );
 };

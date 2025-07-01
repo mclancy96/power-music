@@ -5,7 +5,12 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import SearchResult from "./SearchResult";
 
-const SearchResults = ({ searchResults, favorites, onFavoriteButtonClick }) => {
+const SearchResults = ({
+  searchResults,
+  favorites,
+  onFavoriteButtonClick,
+  isTrackInFavorites,
+}) => {
   return (
     <>
       <h2>Results</h2>
@@ -27,7 +32,12 @@ const SearchResults = ({ searchResults, favorites, onFavoriteButtonClick }) => {
             {searchResults.map((searchResult) => (
               <SearchResult
                 key={searchResult.id}
-                {...{ searchResult, favorites, onFavoriteButtonClick }}
+                {...{
+                  searchResult,
+                  favorites,
+                  onFavoriteButtonClick,
+                  isTrackInFavorites,
+                }}
               />
             ))}
           </TableBody>
