@@ -5,7 +5,12 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import SearchResult from "./SearchResult";
 
-const SearchResults = ({ searchResults }) => {
+const SearchResults = ({
+  searchResults,
+  favorites,
+  onFavoriteButtonClick,
+  isTrackInFavorites,
+}) => {
   return (
     <>
       <h2>Results</h2>
@@ -15,17 +20,25 @@ const SearchResults = ({ searchResults }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Artist</TableCell>
-              <TableCell>Album</TableCell>
-              <TableCell>Released</TableCell>
-              <TableCell>Preview</TableCell>
-              <TableCell>Favorite</TableCell>
+              <TableCell align="center">Name</TableCell>
+              <TableCell align="center">Artist</TableCell>
+              <TableCell align="center">Album</TableCell>
+              <TableCell align="center">Released</TableCell>
+              <TableCell align="center">Preview</TableCell>
+              <TableCell align="center">Favorite</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {searchResults.map((searchResult) => (
-              <SearchResult key={searchResult.id} {...{ searchResult }} />
+              <SearchResult
+                key={searchResult.id}
+                {...{
+                  searchResult,
+                  favorites,
+                  onFavoriteButtonClick,
+                  isTrackInFavorites,
+                }}
+              />
             ))}
           </TableBody>
         </Table>
