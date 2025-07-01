@@ -13,7 +13,6 @@ function App() {
   });
   const [shouldPlay, setShouldPlay] = useState(false);
 
-  // Effect to handle playing audio when track changes
   useEffect(() => {
     if (shouldPlay && player.track.audio) {
       playSong();
@@ -23,7 +22,11 @@ function App() {
 
   const playSong = () => {
     if (player.track.audio) {
-      const audio = new Audio(player.track.audio);
+      let audio = player.audio;
+      if (!audio.paused) {
+        audio = new Audio(player.track.audio);
+      }
+
       audio.play().catch((error) => {
         console.error("Error playing audio:", error);
       });
@@ -32,11 +35,11 @@ function App() {
       console.log("No preview available for this track");
     }
   };
-  
+
   const pauseSong = () => {
     if (player.audio && typeof player.audio.pause === "function") {
       player.audio.pause();
-      setPlayer((player) => ({ ...player, isPlaying: false, audio: {} }));
+      setPlayer((player) => ({ ...player, isPlaying: false }));
     } else {
       console.log("No preview available for this track");
     }
