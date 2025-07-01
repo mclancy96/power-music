@@ -14,8 +14,10 @@ const Navbar = () => {
     switch (currentPathValue) {
       case "/search":
         return 1;
-      default:
+      case "/":
         return 0;
+      default:
+        return -1;
     }
   };
 
@@ -30,7 +32,7 @@ const Navbar = () => {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: "100%",
         margin: "0 auto",
         display: "flex",
         justifyContent: "center",
@@ -43,6 +45,18 @@ const Navbar = () => {
           setValue(newValue);
         }}
       >
+        <BottomNavigationAction
+          component={Link}
+          to="/"
+          icon={
+            <img
+              src="/power_music_logo-transparent.png"
+              alt="Power Music Logo"
+              width="50px"
+              height="50px"
+            />
+          }
+        />
         <BottomNavigationAction
           component={Link}
           to="/"

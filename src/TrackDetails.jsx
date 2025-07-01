@@ -5,6 +5,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Skeleton,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -33,6 +34,39 @@ const TrackDetails = () => {
     <Container>
       {track === undefined ? (
         <h2>Track Not Found!</h2>
+      ) : !track.name ? (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            margin: "3em",
+            gap: 2,
+          }}
+        >
+          <Skeleton
+            variant="rectangular"
+            sx={imageStyle}
+            height={300}
+            animation="pulsate"
+          />
+          <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+            <Skeleton
+              variant="text"
+              sx={{ fontSize: "2rem", mb: 2 }}
+              animation="pulsate"
+            />
+            <List>
+              {[...Array(4)].map((_, index) => (
+                <ListItem key={index}>
+                  <ListItemText
+                    primary={<Skeleton width="20%" animation="pulsate" />}
+                    secondary={<Skeleton width="60%" animation="pulsate" />}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Box>
       ) : (
         <Box
           sx={{
