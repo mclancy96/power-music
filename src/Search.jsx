@@ -1,7 +1,7 @@
 import { FormGroup } from "@mui/material";
-import Input from "@mui/material/Input";
+// import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchResults from "./SearchResults";
 import trackData from "./sample_responses/tracks.json";
 import Button from "@mui/material/Button";
@@ -10,6 +10,12 @@ const Search = () => {
   // const apiUrl = process.env.REACT_APP_API_URL;
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/favorites")
+      .then((r) => r.json())
+      .then(setFavorites);
+  }, [favorites]);
   // const parseSearchResult = (response) => {
 
   // }
@@ -20,6 +26,9 @@ const Search = () => {
     //   .then(parseSearchResult);
     setSearchResults(trackData.results);
   };
+  const onFavoriteButtonClick = (track) => {
+    return fetch
+  }
   return (
     <div>
       <h1>Search for Song</h1>
@@ -36,7 +45,7 @@ const Search = () => {
         <Button type="submit">Submit</Button>
       </form>
       <hr />
-      <SearchResults {...{ searchResults }} />
+      <SearchResults {...{ searchResults, favorites, onFavoriteButtonClick }} />
     </div>
   );
 };

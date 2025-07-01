@@ -1,9 +1,9 @@
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Play from "@mui/icons-material/PlayCircle";
-import Heart from "@mui/icons-material/HeartBroken";
+import FavoriteButton from "./FavoriteButton";
 
-const SearchResult = ({ searchResult }) => {
+const SearchResult = ({ searchResult, favorites, onFavoriteButtonClick }) => {
   return (
     <TableRow>
       {/* make first one a link to the song detail page */}
@@ -12,16 +12,15 @@ const SearchResult = ({ searchResult }) => {
       <TableCell>{searchResult.artist_name}</TableCell>
       <TableCell>{searchResult.album_name}</TableCell>
       <TableCell>{searchResult.releasedate}</TableCell>
-      <TableCell>
+      <TableCell align="center">
         <button>
           <Play /> preview
         </button>
       </TableCell>
-      <TableCell>
-        <button>
-          <Heart />
-          favorite
-        </button>
+      <TableCell align="center">
+        <FavoriteButton
+          {...{ track: searchResult, favorites, onFavoriteButtonClick }}
+        />
       </TableCell>
     </TableRow>
   );
