@@ -16,18 +16,11 @@ function App() {
   // Effect to handle playing audio when track changes
   useEffect(() => {
     if (shouldPlay && player.track.audio) {
-      if (player.track.audio) {
-        const audio = new Audio(player.track.audio);
-        audio.play().catch((error) => {
-          console.error("Error playing audio:", error);
-        });
-        setPlayer((player) => ({ ...player, isPlaying: true, audio }));
-      } else {
-        console.log("No preview available for this track");
-      }
+      playSong();
       setShouldPlay(false);
     }
   }, [player.track, shouldPlay]);
+
   const playSong = () => {
     if (player.track.audio) {
       const audio = new Audio(player.track.audio);
@@ -39,6 +32,7 @@ function App() {
       console.log("No preview available for this track");
     }
   };
+  
   const pauseSong = () => {
     if (player.audio && typeof player.audio.pause === "function") {
       player.audio.pause();
@@ -54,7 +48,7 @@ function App() {
 
   const queueTrackAndPlay = (track) => {
     if (player.isPlaying) pauseSong();
-    setPlayer(prevPlayer => ({ ...prevPlayer, track }));
+    setPlayer((prevPlayer) => ({ ...prevPlayer, track }));
     setShouldPlay(true);
   };
   return (
@@ -65,7 +59,9 @@ function App() {
           <Routes>
             <Route
               path="/search"
-              element={<Search {...{ player, togglePlayer, queueTrackAndPlay }} />}
+              element={
+                <Search {...{ player, togglePlayer, queueTrackAndPlay }} />
+              }
             />
             <Route path="/" element={<Home />} />
           </Routes>
