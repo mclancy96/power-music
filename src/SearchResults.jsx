@@ -12,7 +12,7 @@ const SearchResults = ({
   isTrackInFavorites,
   player,
   togglePlayer,
-  queueTrackAndPlay
+  queueTrackAndPlay,
 }) => {
   return (
     <>
@@ -20,34 +20,43 @@ const SearchResults = ({
       {searchResults.length <= 0 ? (
         "No Results to Show"
       ) : (
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell align="center">Name</TableCell>
-              <TableCell align="center">Artist</TableCell>
-              <TableCell align="center">Album</TableCell>
-              <TableCell align="center">Released</TableCell>
-              <TableCell align="center">Preview</TableCell>
-              <TableCell align="center">Favorite</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {searchResults.map((searchResult) => (
-              <SearchResult
-                key={searchResult.id}
-                {...{
-                  searchResult,
-                  favorites,
-                  onFavoriteButtonClick,
-                  isTrackInFavorites,
-                  player,
-                  togglePlayer,
-                  queueTrackAndPlay
-                }}
-              />
-            ))}
-          </TableBody>
-        </Table>
+        <div style={{ overflowX: "auto", maxWidth: "100%" }}>
+          <Table
+            sx={{
+              width: "100%",
+              margin: "0 auto",
+              justifyContent: "center",
+            }}
+            stickyHeader
+          >
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Name</TableCell>
+                <TableCell align="center">Artist</TableCell>
+                <TableCell align="center">Album</TableCell>
+                <TableCell align="center">Released</TableCell>
+                <TableCell align="center">Preview</TableCell>
+                <TableCell align="center">Favorite</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {searchResults.map((searchResult) => (
+                <SearchResult
+                  key={searchResult.id}
+                  {...{
+                    searchResult,
+                    favorites,
+                    onFavoriteButtonClick,
+                    isTrackInFavorites,
+                    player,
+                    togglePlayer,
+                    queueTrackAndPlay,
+                  }}
+                />
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       )}
     </>
   );
