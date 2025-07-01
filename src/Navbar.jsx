@@ -13,17 +13,15 @@ const Navbar = () => {
   const getCurrentPathIndex = (currentPathValue) => {
     switch (currentPathValue) {
       case "/search":
-        return 1;
+        return 2;
       case "/":
-        return 0;
+        return 1;
       default:
-        return -1;
+        return 0;
     }
   };
 
-  const [value, setValue] = useState(() => {
-    return getCurrentPathIndex(currentPath);
-  });
+  const [value, setValue] = useState(getCurrentPathIndex(currentPath));
 
   useEffect(() => {
     setValue(getCurrentPathIndex(currentPath));

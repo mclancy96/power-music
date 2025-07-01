@@ -61,8 +61,14 @@ function App() {
         <Navbar />
         <Container>
           <Routes>
-            <Route path="/search" element={<Search />} />
-            <Route path="/tracks/:trackId" element={<TrackDetails />} />
+            <Route
+              path="/tracks/:trackId"
+              element={
+                <TrackDetails
+                  {...{ player, togglePlayer, queueTrackAndPlay }}
+                />
+              }
+            />
             <Route
               path="/search"
               element={

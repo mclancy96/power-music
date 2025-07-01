@@ -9,8 +9,9 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import PreviewButton from "./PreviewButton";
 
-const TrackDetails = () => {
+const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
   const [track, setTrack] = useState({});
   const { trackId } = useParams();
 
@@ -77,11 +78,47 @@ const TrackDetails = () => {
           }}
         >
           <Box
-            component="img"
-            sx={imageStyle}
-            alt="Track artwork"
-            src={track.album_image}
-          />
+            sx={{
+              position: 'relative',
+              width: { xs: "100%", md: "50%" },
+              '&:hover .hover-content': {
+                opacity: 1
+              }
+            }}
+          >
+            <Box
+              component="img"
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block"
+              }}
+              alt="Track artwork"
+              src={track.album_image}
+            />
+            <Box
+              className="hover-content"
+              sx={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                padding: 2,
+                borderRadius: 1
+              }}
+            >
+              <PreviewButton
+                track={track}
+                player={player}
+                togglePlayer={togglePlayer}
+                queueTrackAndPlay={queueTrackAndPlay}
+              />
+            </Box>
+          </Box>
           <Box sx={{ width: { xs: "100%", md: "50%" } }}>
             <Typography variant="h4" gutterBottom>
               {track.name}

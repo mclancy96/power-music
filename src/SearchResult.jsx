@@ -18,7 +18,6 @@ const SearchResult = ({
         <a href={`/tracks/${searchResult.id}`}>{searchResult.name}</a>
       </TableCell>
       <TableCell>{searchResult.artist_name}</TableCell>
-      <TableCell>{searchResult.artist_name}</TableCell>
       <TableCell>{searchResult.album_name}</TableCell>
       <TableCell>{searchResult.releasedate}</TableCell>
       <TableCell align="center">
