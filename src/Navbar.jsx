@@ -13,15 +13,15 @@ const Navbar = () => {
   const getCurrentPathIndex = (currentPathValue) => {
     switch (currentPathValue) {
       case "/search":
+        return 2;
+      case "/":
         return 1;
       default:
         return 0;
     }
   };
 
-  const [value, setValue] = useState(() => {
-    return getCurrentPathIndex(currentPath);
-  });
+  const [value, setValue] = useState(getCurrentPathIndex(currentPath));
 
   useEffect(() => {
     setValue(getCurrentPathIndex(currentPath));
@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: "100%",
         margin: "0 auto",
         display: "flex",
         justifyContent: "center",
@@ -46,13 +46,25 @@ const Navbar = () => {
         <BottomNavigationAction
           component={Link}
           to="/"
+          icon={
+            <img
+              src="/power_music_logo-transparent.png"
+              alt="Power Music Logo"
+              width="50px"
+              height="50px"
+            />
+          }
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/"
           label="Home"
           icon={<Cottage />}
         />
         <BottomNavigationAction
           component={Link}
           to="/search"
-          label="Searches"
+          label="Search"
           icon={<SearchIcon />}
         />
       </BottomNavigation>

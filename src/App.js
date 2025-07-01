@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Navbar from "./Navbar";
 import Search from "./Search";
 import Home from "./Home";
+import TrackDetails from "./TrackDetails";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -60,6 +61,14 @@ function App() {
         <Navbar />
         <Container>
           <Routes>
+            <Route
+              path="/tracks/:trackId"
+              element={
+                <TrackDetails
+                  {...{ player, togglePlayer, queueTrackAndPlay }}
+                />
+              }
+            />
             <Route
               path="/search"
               element={

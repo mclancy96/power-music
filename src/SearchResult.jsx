@@ -14,9 +14,9 @@ const SearchResult = ({
 }) => {
   return (
     <TableRow>
-      {/* make first one a link to the song detail page */}
-      <TableCell>{searchResult.name}</TableCell>
-      {/* make second one a link to the artist detail page */}
+      <TableCell>
+        <a href={`/tracks/${searchResult.id}`}>{searchResult.name}</a>
+      </TableCell>
       <TableCell>{searchResult.artist_name}</TableCell>
       <TableCell>{searchResult.album_name}</TableCell>
       <TableCell>{searchResult.releasedate}</TableCell>
