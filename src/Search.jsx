@@ -1,12 +1,15 @@
-import { FormGroup } from "@mui/material";
-// import Input from "@mui/material/Input";
-import InputLabel from "@mui/material/InputLabel";
 import { useEffect, useState } from "react";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  InputAdornment,
+  OutlinedInput,
+} from "@mui/material";
 import SearchResults from "./SearchResults";
 import trackData from "./sample_responses/tracks.json";
-import Button from "@mui/material/Button";
 
-const Search = () => {
+const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
   // const apiUrl = process.env.REACT_APP_API_URL;
   const favoriteUrl = "http://localhost:3001/favorites/";
   const [searchValue, setSearchValue] = useState("");
@@ -76,16 +79,23 @@ const Search = () => {
     <div>
       <h1>Search for Song</h1>
       <form onSubmit={searchForSong}>
-        <FormGroup>
-          <InputLabel>Enter Song Name</InputLabel>
-          {/* <Input type="text" /> */}
-          <input
-            required
+        <FormControl fullWidth sx={{ m: 1 }}>
+          <InputLabel htmlFor="outlined-adornment-search">Search</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-search"
+            type="text"
+            endAdornment={
+              <InputAdornment position="end">
+                <Button type="submit" variant="contained">
+                  Search
+                </Button>
+              </InputAdornment>
+            }
+            label="Search"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-          ></input>
-        </FormGroup>
-        <Button type="submit">Submit</Button>
+          />
+        </FormControl>
       </form>
       <hr />
       <SearchResults
@@ -94,6 +104,9 @@ const Search = () => {
           favorites,
           onFavoriteButtonClick,
           isTrackInFavorites,
+          player,
+          togglePlayer,
+          queueTrackAndPlay
         }}
       />
     </div>
