@@ -13,6 +13,7 @@ import {
 import { Share } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { formatDuration } from "./helpers/formatters";
 import PreviewButton from "./PreviewButton";
 
 const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
@@ -201,7 +202,10 @@ const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
                 />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Duration" secondary={track.duration} />
+                <ListItemText
+                  primary="Duration"
+                  secondary={formatDuration(track.duration)}
+                />
               </ListItem>
             </List>
           </Box>
