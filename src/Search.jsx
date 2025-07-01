@@ -94,36 +94,38 @@ const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
   return (
     <div>
       <h1>Search for Song</h1>
-      <SearchSort {...{ sortMethod, updateSortMethodOnChange }} />
-      <form onSubmit={searchForSong}>
-        <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-search">Search</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-search"
-            type="text"
-            endAdornment={
-              <InputAdornment position="end">
-                <Button
-                  type="submit"
-                  variant="contained"
-                  disabled={searchValue.trim().length < 2}
-                >
-                  Search
-                </Button>
-              </InputAdornment>
-            }
-            label="Search"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            error={searchValue.trim().length === 1}
-            helperText={
-              searchValue.trim().length === 1
-                ? "Minimum 2 characters required"
-                : ""
-            }
-          />
-        </FormControl>
-      </form>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <SearchSort {...{ sortMethod, updateSortMethodOnChange }} />
+        <form onSubmit={searchForSong} style={{ flexGrow: 1 }}>
+          <FormControl fullWidth sx={{ m: 1 }}>
+            <InputLabel htmlFor="outlined-adornment-search">Search</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-search"
+              type="text"
+              endAdornment={
+                <InputAdornment position="end">
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    disabled={searchValue.trim().length < 2}
+                  >
+                    Search
+                  </Button>
+                </InputAdornment>
+              }
+              label="Search"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              error={searchValue.trim().length === 1}
+              helperText={
+                searchValue.trim().length === 1
+                  ? "Minimum 2 characters required"
+                  : ""
+              }
+            />
+          </FormControl>
+        </form>
+      </div>
       <hr />
       <SearchResults
         {...{
