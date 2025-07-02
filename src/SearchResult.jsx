@@ -3,6 +3,7 @@ import TableRow from "@mui/material/TableRow";
 import FavoriteButton from "./FavoriteButton";
 import PreviewButton from "./PreviewButton";
 import { formatDuration } from "./helpers/formatters";
+import { Link } from "react-router-dom";
 
 const SearchResult = ({
   searchResult,
@@ -20,7 +21,13 @@ const SearchResult = ({
   return (
     <TableRow>
       <TableCell>
-        <a href={`/tracks/${searchResult.id}`}>{searchResult.name}</a>
+        <Link
+          to={`/tracks/${
+            searchResult.track_id ? searchResult.track_id : searchResult.id
+          }`}
+        >
+          {searchResult.name}
+        </Link>
       </TableCell>
       <TableCell>{searchResult.artist_name}</TableCell>
       <TableCell>{searchResult.album_name}</TableCell>
