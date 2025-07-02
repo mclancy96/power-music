@@ -8,19 +8,19 @@ Power Music is a simple and interactive music discovery app powered by the [Jame
 
 ### MVP
 
-- 🔍 **Search for Music** – Enter keywords to explore royalty-free tracks by title, artist, or genre.
-- ▶️ **Play Music Previews** – Stream 30-second audio previews directly from search results.
-- 💾 **Save Favorites** – Save and revisit your favorite tracks across sessions.
-- 🔗 **Shareable Song Links** – Share songs with friends via direct or generated links.
-- 🧮 **Sort Search Results** – Sort music by popularity, release date, or duration using Jamendo API parameters.
+- [x] 🔍 **Search for Music** – Enter keywords to explore royalty-free tracks by title, artist, or genre.
+- [x] ▶️ **Play Music Previews** – Stream 30-second audio previews directly from search results.
+- [x] 💾 **Save Favorites** – Save and revisit your favorite tracks across sessions.
+- [x] 🔗 **Shareable Song Links** – Share songs with friends via direct or generated links.
+- [x] 🧮 **Sort Search Results** – Sort music by popularity, release date, or duration using Jamendo API parameters.
 
 ### Stretch Goals
 
-- 🏷️ **Tag-Based Filtering** – Refine searches using tags (e.g., chill, upbeat, acoustic).
-- 📄 **About Page** – Explain the app and Jamendo’s role as a music provider.
-- 🎛️ **Mini Audio Player** – A persistent audio player with playback controls.
-- 🌗 **Light/Dark Theme Toggle** – Switch between light and dark UI themes (saved in localStorage).
-- ⌨️ **Keyboard Navigation & Shortcuts** – Use keyboard controls for an efficient experience.
+- [ ] 🏷️ **Tag-Based Filtering** – Refine searches using tags (e.g., chill, upbeat, acoustic).
+- [ ] 📄 **About Page** – Explain the app and Jamendo’s role as a music provider.
+- [ ] 🎛️ **Mini Audio Player** – A persistent audio player with playback controls.
+- [ ] 🌗 **Light/Dark Theme Toggle** – Switch between light and dark UI themes (saved in localStorage).
+- [ ] ⌨️ **Keyboard Navigation & Shortcuts** – Use keyboard controls for an efficient experience.
 
 ---
 
