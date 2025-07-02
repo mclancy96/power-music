@@ -13,10 +13,11 @@ const SearchResults = ({
   player,
   togglePlayer,
   queueTrackAndPlay,
+  tableTitle
 }) => {
   return (
     <>
-      <h2>Results</h2>
+      <h2>{ tableTitle}</h2>
       {searchResults.length <= 0 ? (
         "No Results to Show"
       ) : (

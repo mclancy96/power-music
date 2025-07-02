@@ -73,7 +73,7 @@ const Navbar = () => {
         <BottomNavigationAction
           component={Link}
           to="/favorites"
-          label="Favorite"
+          label="Favorites"
           icon={<FavoriteIcon />}
         />
       </BottomNavigation>

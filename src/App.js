@@ -14,6 +14,80 @@ function App() {
     isPlaying: false,
   });
   const [shouldPlay, setShouldPlay] = useState(false);
+  const favoriteUrl = "http://localhost:3001/favorites/";
+  const [favorites, setFavorites] = useState([]);
+  const isTrackInFavorites = (track) => {
+    return favorites.find(
+      (fave) => fave.track_id === track.id || fave.id === track.id,
+    );
+  };
+  useEffect(() => {
+    fetch(favoriteUrl)
+      .then((r) => r.json())
+      .then(setFavorites);
+  }, []);
+  const onFavoriteButtonClick = (track) => {
+    const foundTrackFavorite = isTrackInFavorites(track);
+    foundTrackFavorite
+      ? deleteTrackFromFavorites(foundTrackFavorite)
+      : addTrackToFavorites(track);
+  };
+
+  const deleteTrackFromFavorites = (favorite) => {
+    fetch(favoriteUrl + favorite.id, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => {
+        setFavorites((faves) =>
+          faves.filter(
+            (fave) => fave.track_id !== favorite.id && fave.id !== favorite.id,
+          ),
+        );
+      })
+      .catch(() => {
+        return false;
+      });
+  };
+
+  const formatFavoriteBody = ({
+    id,
+    name,
+    duration,
+    artist_name,
+    album_name,
+    releasedate,
+    album_image,
+    audio,
+    shareurl,
+    image,
+  }) => ({
+    track_id: id,
+    name,
+    duration,
+    artist_name,
+    album_name,
+    releasedate,
+    album_image,
+    audio,
+    shareurl,
+    image,
+  });
+
+  const addTrackToFavorites = (track) => {
+    fetch(favoriteUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formatFavoriteBody(track)),
+    })
+      .then((r) => r.json())
+      .then((returnedTrack) => {
+        setFavorites((faves) => [...faves, returnedTrack]);
+      })
+      .catch(() => {
+        return false;
+      });
+  };
 
   useEffect(() => {
     if (shouldPlay && player.track.audio) {
@@ -73,13 +147,31 @@ function App() {
             <Route
               path="/favorites"
               element={
-                <Favorites {...{ player, togglePlayer, queueTrackAndPlay }} />
+                <Favorites
+                  {...{
+                    player,
+                    togglePlayer,
+                    queueTrackAndPlay,
+                    favorites,
+                    onFavoriteButtonClick,
+                    isTrackInFavorites,
+                  }}
+                />
               }
             />
             <Route
               path="/search"
               element={
-                <Search {...{ player, togglePlayer, queueTrackAndPlay }} />
+                <Search
+                  {...{
+                    player,
+                    togglePlayer,
+                    queueTrackAndPlay,
+                    favorites,
+                    onFavoriteButtonClick,
+                    isTrackInFavorites,
+                  }}
+                />
               }
             />
             <Route path="/" element={<Home />} />
