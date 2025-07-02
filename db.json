@@ -1,44 +1,30 @@
 {
   "favorites": [
     {
-      "id": "1",
-      "track_id": "1261234",
-      "title": "Electro Vibes",
-      "artist_name": "DJ Freedom",
-      "audio_url": "https://mp3d.jamendo.com/?trackid=1261234&token=demo_token",
-      "image_url": "https://imgjam.com/albums/s123/001/cover.jpg"
+      "id": "5875",
+      "track_id": "2191927",
+      "name": "44. Manhattan Sunset",
+      "duration": 197,
+      "artist_name": "Michał Jałochowski",
+      "album_name": "Smooth Jazz Club / Ballads",
+      "releasedate": "2024-08-02",
+      "album_image": "https://usercontent.jamendo.com?type=album&id=575950&width=300&trackid=2191927",
+      "audio": "https://prod-1.storage.jamendo.com/?trackid=2191927&format=mp31&from=rKpy1TaBgROIbkt%2Fa46CQA%3D%3D%7CJ77hMiaqbYEBjedVXdVWWQ%3D%3D",
+      "shareurl": "https://www.jamendo.com/track/2191927",
+      "image": "https://usercontent.jamendo.com?type=album&id=575950&width=300&trackid=2191927"
     },
     {
-      "id": "2",
-      "track_id": "1298765",
-      "title": "Sunset Dream",
-      "artist_name": "Luna Flow",
-      "audio_url": "https://mp3d.jamendo.com/?trackid=1298765&token=demo_token",
-      "image_url": "https://imgjam.com/albums/s456/002/cover.jpg"
-    },
-    {
-      "id": "6f27",
-      "track_id": "1848357",
-      "title": "mañana será tarde",
-      "artist_name": "fankel",
-      "audio_url": "https://prod-1.storage.jamendo.com/?trackid=1848357&format=mp31&from=BRoBn%2B9gcYs3QJrS6Pkl0A%3D%3D%7Ct9m8A7E%2FZ1LvjdOVBMl%2FPg%3D%3D",
-      "image_url": "https://usercontent.jamendo.com?type=album&id=368084&width=300&trackid=1848357"
-    },
-    {
-      "id": "f299",
-      "track_id": "2062699",
-      "title": "Enjoy The Party",
-      "artist_name": "Ed Napoli",
-      "audio_url": "https://prod-1.storage.jamendo.com/?trackid=2062699&format=mp31&from=60BNpk0S0lTOnCYJe1uYzA%3D%3D%7Cpn7vXoGyIqis3NgK21uNIQ%3D%3D",
-      "image_url": "https://usercontent.jamendo.com?type=album&id=531545&width=300&trackid=2062699"
-    },
-    {
-      "id": "dcb1",
-      "track_id": "2194262",
-      "title": "Tropical Party - Bed",
-      "artist_name": "CorporateSounds",
-      "audio_url": "https://prod-1.storage.jamendo.com/?trackid=2194262&format=mp31&from=hhHiWDfmfb6CGUioGlgimw%3D%3D%7CDNcxcgLeZUS4Qc3ptqStnA%3D%3D",
-      "image_url": "https://usercontent.jamendo.com?type=album&id=576622&width=300&trackid=2194262"
+      "id": "e707",
+      "track_id": "2043033",
+      "name": "The Last Handshake",
+      "duration": 253,
+      "artist_name": "Ogi Feel the Beat",
+      "album_name": "Stronger than the Problems",
+      "releasedate": "2023-07-12",
+      "album_image": "https://usercontent.jamendo.com?type=album&id=526542&width=300&trackid=2043033",
+      "audio": "https://prod-1.storage.jamendo.com/?trackid=2043033&format=mp31&from=8OAruHIRWhTmceACxh94NQ%3D%3D%7C5QBlNDUgQAQfGhusMTAmZA%3D%3D",
+      "shareurl": "https://www.jamendo.com/track/2043033",
+      "image": "https://usercontent.jamendo.com?type=album&id=526542&width=300&trackid=2043033"
     }
   ]
 }

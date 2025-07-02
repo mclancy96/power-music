@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Button,
   FormControl,
@@ -9,64 +9,19 @@ import {
 import SearchResults from "./SearchResults";
 import SearchSort from "./SearchSort";
 
-const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
+const Search = ({
+  player,
+  togglePlayer,
+  queueTrackAndPlay,
+  favorites,
+  onFavoriteButtonClick,
+  isTrackInFavorites,
+}) => {
   const apiBaseUrl = "https://api.jamendo.com/v3.0/tracks/";
-  const favoriteUrl = "http://localhost:3001/favorites/";
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+
   const [sortMethod, setSortMethod] = useState("relevance");
-
-  const isTrackInFavorites = (track) => {
-    return favorites.find((fave) => fave.track_id === track.id);
-  };
-  useEffect(() => {
-    fetch(favoriteUrl)
-      .then((r) => r.json())
-      .then(setFavorites);
-  }, []);
-  const onFavoriteButtonClick = (track) => {
-    const foundTrackFavorite = isTrackInFavorites(track);
-    foundTrackFavorite
-      ? deleteTrackFromFavorites(foundTrackFavorite)
-      : addTrackToFavorites(track);
-  };
-
-  const deleteTrackFromFavorites = (favorite) => {
-    fetch(favoriteUrl + favorite.id, {
-      method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then(() => {
-        setFavorites((faves) =>
-          faves.filter((fave) => fave.id !== favorite.id),
-        );
-      })
-      .catch(() => {
-        return false;
-      });
-  };
-
-  const addTrackToFavorites = (track) => {
-    fetch(favoriteUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        track_id: track.id,
-        title: track.name,
-        artist_name: track.artist_name,
-        audio_url: track.audio,
-        image_url: track.image,
-      }),
-    })
-      .then((r) => r.json())
-      .then((returnedTrack) => {
-        setFavorites((faves) => [...faves, returnedTrack]);
-      })
-      .catch(() => {
-        return false;
-      });
-  };
 
   const parseSearchResult = (response) => {
     setSearchResults(response.results || []);
@@ -94,7 +49,7 @@ const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
   return (
     <div>
       <h1>Search for Song</h1>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
         <SearchSort {...{ sortMethod, updateSortMethodOnChange }} />
         <form onSubmit={searchForSong} style={{ flexGrow: 1 }}>
           <FormControl fullWidth sx={{ m: 1 }}>
@@ -136,6 +91,7 @@ const Search = ({ player, togglePlayer, queueTrackAndPlay }) => {
           player,
           togglePlayer,
           queueTrackAndPlay,
+          tableTitle: "Results",
         }}
       />
     </div>
