@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SearchResults from "./SearchResults";
+import TrackImageGallery from "./TrackImageGallery";
 
 const Home = ({
   player,
@@ -12,7 +12,7 @@ const Home = ({
   const [topTracks, setTopTracks] = useState([]);
   useEffect(() => {
     fetch(
-      `https://api.jamendo.com/v3.0/tracks/?client_id=${process.env.REACT_APP_API_ID}&format=json&limit=10&fullcount=true&order=listens_week_desc`,
+      `https://api.jamendo.com/v3.0/tracks/?client_id=${process.env.REACT_APP_API_ID}&format=json&limit=9&fullcount=true&order=listens_week_desc`,
     )
       .then((r) => r.json())
       .then((response) => setTopTracks(response.results || []));
@@ -25,16 +25,16 @@ const Home = ({
         search feature to find popular independent music!
       </p>
       <hr />
-      <SearchResults
+      <h2>This Week's Top Tracks</h2>
+      <TrackImageGallery
         {...{
-          searchResults: topTracks,
+          topTracks,
           favorites,
           onFavoriteButtonClick,
           isTrackInFavorites,
           player,
           togglePlayer,
           queueTrackAndPlay,
-          tableTitle: "This Week's Top Hits",
         }}
       />
     </div>
