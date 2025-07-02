@@ -25,6 +25,32 @@
       "audio": "https://prod-1.storage.jamendo.com/?trackid=2043033&format=mp31&from=8OAruHIRWhTmceACxh94NQ%3D%3D%7C5QBlNDUgQAQfGhusMTAmZA%3D%3D",
       "shareurl": "https://www.jamendo.com/track/2043033",
       "image": "https://usercontent.jamendo.com?type=album&id=526542&width=300&trackid=2043033"
+    },
+    {
+      "id": "bec6",
+      "track_id": "2198699",
+      "name": "Dance With Me",
+      "duration": 362,
+      "artist_name": "LaChean",
+      "album_name": "Intelligentia Iuncturam",
+      "releasedate": "2024-09-01",
+      "album_image": "https://usercontent.jamendo.com?type=album&id=578408&width=300&trackid=2198699",
+      "audio": "https://prod-1.storage.jamendo.com/?trackid=2198699&format=mp31&from=vJC2oi1leXtoTbLEPha8tA%3D%3D%7CbYFRMtspy0f2%2BtK3RbPN0Q%3D%3D",
+      "shareurl": "https://www.jamendo.com/track/2198699",
+      "image": "https://usercontent.jamendo.com?type=album&id=578408&width=300&trackid=2198699"
+    },
+    {
+      "id": "aab8",
+      "track_id": "2225331",
+      "name": "Tropical Pop Dance",
+      "duration": 114,
+      "artist_name": "Jackson Frost",
+      "album_name": "Summer Dance Pop",
+      "releasedate": "2024-12-23",
+      "album_image": "https://usercontent.jamendo.com?type=album&id=590569&width=300&trackid=2225331",
+      "audio": "https://prod-1.storage.jamendo.com/?trackid=2225331&format=mp31&from=Cdo8DQ1XpHABAInvciJE8Q%3D%3D%7Cuyf%2FhOyS%2F%2B2aVswU2PBf1A%3D%3D",
+      "shareurl": "https://www.jamendo.com/track/2225331",
+      "image": "https://usercontent.jamendo.com?type=album&id=590569&width=300&trackid=2225331"
     }
   ]
 }
