@@ -21,6 +21,7 @@ Power Music is a simple and interactive music discovery app powered by the [Jame
 - [ ] 🎛️ **Mini Audio Player** – A persistent audio player with playback controls.
 - [ ] 🌗 **Light/Dark Theme Toggle** – Switch between light and dark UI themes (saved in localStorage).
 - [ ] ⌨️ **Keyboard Navigation & Shortcuts** – Use keyboard controls for an efficient experience.
+- [x] ❤️ **Add Favorites Page** – View and manage your favorites on one page.
 
 ---
 
