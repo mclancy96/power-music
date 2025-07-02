@@ -5,6 +5,7 @@ import Search from "./Search";
 import Home from "./Home";
 import TrackDetails from "./TrackDetails";
 import { useState, useEffect } from "react";
+import Favorites from "./Favorites";
 
 function App() {
   const [player, setPlayer] = useState({
@@ -67,6 +68,12 @@ function App() {
                 <TrackDetails
                   {...{ player, togglePlayer, queueTrackAndPlay }}
                 />
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Favorites {...{ player, togglePlayer, queueTrackAndPlay }} />
               }
             />
             <Route

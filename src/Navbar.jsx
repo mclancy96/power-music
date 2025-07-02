@@ -5,6 +5,7 @@ import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Cottage from "@mui/icons-material/Cottage";
 import SearchIcon from "@mui/icons-material/Search";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useLocation } from "react-router";
 
 const Navbar = () => {
@@ -12,6 +13,8 @@ const Navbar = () => {
   const currentPath = location.pathname;
   const getCurrentPathIndex = (currentPathValue) => {
     switch (currentPathValue) {
+      case "/favorites":
+        return 3;
       case "/search":
         return 2;
       case "/":
@@ -66,6 +69,12 @@ const Navbar = () => {
           to="/search"
           label="Search"
           icon={<SearchIcon />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/favorites"
+          label="Favorite"
+          icon={<FavoriteIcon />}
         />
       </BottomNavigation>
     </Box>
