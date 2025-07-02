@@ -13,8 +13,8 @@ import {
 import { Share } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { formatDuration } from "./helpers/formatters";
-import PreviewButton from "./PreviewButton";
+import { formatDuration } from "../helpers/formatters";
+import PreviewButton from "../components/PreviewButton";
 
 const TrackDetails = ({ player, togglePlayer, queueTrackAndPlay }) => {
   const [track, setTrack] = useState({});

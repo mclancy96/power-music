@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import TrackImageGallery from "./TrackImageGallery";
+import TrackImageGallery from "../components/TrackImageGallery";
 
 const Home = ({
   player,

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
-import Navbar from "./Navbar";
-import Search from "./Search";
-import Home from "./Home";
-import TrackDetails from "./TrackDetails";
+import Navbar from "./components/Navbar";
+import Search from "./pages/Search/Search";
+import Home from "./pages/Home";
+import TrackDetails from "./pages/TrackDetails";
 import { useState, useEffect } from "react";
-import Favorites from "./Favorites";
+import Favorites from "./pages/Favorites";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";

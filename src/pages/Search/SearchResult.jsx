@@ -1,8 +1,8 @@
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import FavoriteButton from "./FavoriteButton";
-import PreviewButton from "./PreviewButton";
-import { formatDuration } from "./helpers/formatters";
+import FavoriteButton from "../../components/FavoriteButton";
+import PreviewButton from "../../components/PreviewButton";
+import { formatDuration } from "../../helpers/formatters";
 import { Link } from "react-router-dom";
 
 const SearchResult = ({
