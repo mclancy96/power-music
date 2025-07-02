@@ -21,7 +21,7 @@ Power Music is a simple and interactive music discovery app powered by the [Jame
 - [ ] 🏷️ **Tag-Based Filtering** – Refine searches using tags (e.g., chill, upbeat, acoustic).
 - [ ] 📄 **About Page** – Explain the app and Jamendo’s role as a music provider.
 - [ ] 🎛️ **Mini Audio Player** – A persistent audio player with playback controls.
-- [ ] 🌗 **Light/Dark Theme Toggle** – Switch between light and dark UI themes (saved in localStorage).
+- [X] 🌗 **Light/Dark Theme Toggle** – Switch between light and dark UI themes (saved in localStorage).
 - [ ] ⌨️ **Keyboard Navigation & Shortcuts** – Use keyboard controls for an efficient experience.
 - [X] ❤️ **Add Favorites Page** – View and manage your favorites on one page.
 - [X] ❤️ **Display Today's Top Hits** – View today's top tracks on the home page.
