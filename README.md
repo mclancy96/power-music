@@ -38,10 +38,6 @@ Power Music is a simple and interactive music discovery app powered by the [Jame
 - Stores favorited songs in a `db.json` file
 - RESTful routes for basic CRUD operations
 
-```bash
-json-server --watch db.json --port 3001
-```
-
 ---
 
 ## 📊 API Endpoints
@@ -63,8 +59,7 @@ json-server --watch db.json --port 3001
 ### 1. Clone the Repos
 
 ```bash
-git clone https://github.com/yourname/power-music-frontend.git
-git clone https://github.com/yourname/power-music-backend.git
+git clone https://github.com/mclancy96/power-music.git
 ```
 
 ### 2. Start Backend (JSON Server)
@@ -72,15 +67,23 @@ git clone https://github.com/yourname/power-music-backend.git
 ```bash
 cd power-music
 npm install -g json-server #if you haven't done so already
-npm run server
+npm i && npm run server
 ```
 
 ### 3. Open Frontend
 
 ```bash
-cd power-music
+cd power-music #if you're not there already
 npm i && npm start
 ```
+
+---
+
+## Future Development
+
+### Pages for Artists and Albums
+
+I'd like to have pages for artists and albums that show the music available from those artists if a user happens to like either of them and wants to see more from that artist. I would envision it being a link similar to the one for the track show page in the favorites and results tables.
 
 ---
 
