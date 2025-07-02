@@ -77,6 +77,45 @@
       "audio": "https://prod-1.storage.jamendo.com/?trackid=1593515&format=mp31&from=R4U1ffgmbtFQuLUJdZUw8Q%3D%3D%7C5K5kePrPMmgW1kmivcz2wQ%3D%3D",
       "shareurl": "https://www.jamendo.com/track/1593515",
       "image": "https://usercontent.jamendo.com?type=album&id=296659&width=300&trackid=1593515"
+    },
+    {
+      "id": "e370",
+      "track_id": "2176605",
+      "name": "Gambling Funk",
+      "duration": 204,
+      "artist_name": "Nick Gordy",
+      "album_name": "Gambling Funk",
+      "releasedate": "2024-05-14",
+      "album_image": "https://usercontent.jamendo.com?type=album&id=568575&width=300&trackid=2176605",
+      "audio": "https://prod-1.storage.jamendo.com/?trackid=2176605&format=mp31&from=W7gGSZvzQhA%2Bw0DwdjdgIQ%3D%3D%7CXI0ZaoEFTdhbMEgIxL0rBg%3D%3D",
+      "shareurl": "https://www.jamendo.com/track/2176605",
+      "image": "https://usercontent.jamendo.com?type=album&id=568575&width=300&trackid=2176605"
+    },
+    {
+      "id": "da4b",
+      "track_id": "1230403",
+      "name": "Possibilities",
+      "duration": 210,
+      "artist_name": "Jasmine Jordan",
+      "album_name": "Time Travel EP",
+      "releasedate": "2015-05-15",
+      "album_image": "https://usercontent.jamendo.com?type=album&id=147554&width=300&trackid=1230403",
+      "audio": "https://prod-1.storage.jamendo.com/?trackid=1230403&format=mp31&from=Ks8nW1hEcPLGtpCDdJZG6w%3D%3D%7CQabpoIoI9KuoqiDFFPPq7g%3D%3D",
+      "shareurl": "https://www.jamendo.com/track/1230403",
+      "image": "https://usercontent.jamendo.com?type=album&id=147554&width=300&trackid=1230403"
+    },
+    {
+      "id": "7ad2",
+      "track_id": "2161171",
+      "name": "Host",
+      "duration": 177,
+      "artist_name": "Color Out",
+      "album_name": "Host / Therapy (In My Skin)",
+      "releasedate": "2024-03-11",
+      "album_image": "https://usercontent.jamendo.com?type=album&id=562528&width=300&trackid=2161171",
+      "audio": "https://prod-1.storage.jamendo.com/?trackid=2161171&format=mp31&from=svmA2iBjr5xyog6rZKHf6Q%3D%3D%7C1tIdnsBOgoNxZAtQn7qtsw%3D%3D",
+      "shareurl": "https://www.jamendo.com/track/2161171",
+      "image": "https://usercontent.jamendo.com?type=album&id=562528&width=300&trackid=2161171"
     }
   ]
 }

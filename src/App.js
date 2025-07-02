@@ -1,4 +1,3 @@
-import Container from "@mui/material/Container";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Navbar from "./Navbar";
 import Search from "./Search";
@@ -6,6 +5,17 @@ import Home from "./Home";
 import TrackDetails from "./TrackDetails";
 import { useState, useEffect } from "react";
 import Favorites from "./Favorites";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { blue, red } from "@mui/material/colors";
+import {
+  Box,
+  GlobalStyles,
+  Container,
+  CssBaseline,
+  IconButton,
+} from "@mui/material";
 
 function App() {
   const [player, setPlayer] = useState({
@@ -16,6 +26,26 @@ function App() {
   const [shouldPlay, setShouldPlay] = useState(false);
   const favoriteUrl = process.env.REACT_APP_DB_URL + "favorites/";
   const [favorites, setFavorites] = useState([]);
+  const [mode, setMode] = useState("light");
+  const colorMode = {
+    toggleColorMode: () => {
+      setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+    },
+  };
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: blue[500],
+      },
+      secondary: {
+        main: red[500],
+      },
+      tertiary: {
+        main: "#FFA500",
+      },
+      mode,
+    },
+  });
   const isTrackInFavorites = (track) => {
     return favorites.find(
       (fave) => fave.track_id === track.id || fave.id === track.id,
@@ -131,68 +161,90 @@ function App() {
     setShouldPlay(true);
   };
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <Container>
-          <Routes>
-            <Route
-              path="/tracks/:trackId"
-              element={
-                <TrackDetails
-                  {...{ player, togglePlayer, queueTrackAndPlay }}
-                />
-              }
-            />
-            <Route
-              path="/favorites"
-              element={
-                <Favorites
-                  {...{
-                    player,
-                    togglePlayer,
-                    queueTrackAndPlay,
-                    favorites,
-                    onFavoriteButtonClick,
-                    isTrackInFavorites,
-                  }}
-                />
-              }
-            />
-            <Route
-              path="/search"
-              element={
-                <Search
-                  {...{
-                    player,
-                    togglePlayer,
-                    queueTrackAndPlay,
-                    favorites,
-                    onFavoriteButtonClick,
-                    isTrackInFavorites,
-                  }}
-                />
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <Home
-                  {...{
-                    player,
-                    togglePlayer,
-                    queueTrackAndPlay,
-                    favorites,
-                    onFavoriteButtonClick,
-                    isTrackInFavorites,
-                  }}
-                />
-              }
-            />
-          </Routes>
-        </Container>
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <GlobalStyles
+        styles={(theme) => ({
+          a: {
+            color:
+              theme.palette.mode === "dark"
+                ? theme.palette.primary.light
+                : theme.palette.primary.main,
+            textDecoration: "none",
+          },
+          "a:hover": {
+            textDecoration: "underline",
+          },
+        })}
+      />
+      <Router>
+        <div>
+          <Navbar />
+          <Box sx={{ position: "fixed", top: 16, right: 16, zIndex: 1301 }}>
+            <IconButton onClick={colorMode.toggleColorMode} color="inherit">
+              {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
+          </Box>
+          <Container>
+            <Routes>
+              <Route
+                path="/tracks/:trackId"
+                element={
+                  <TrackDetails
+                    {...{ player, togglePlayer, queueTrackAndPlay }}
+                  />
+                }
+              />
+              <Route
+                path="/favorites"
+                element={
+                  <Favorites
+                    {...{
+                      player,
+                      togglePlayer,
+                      queueTrackAndPlay,
+                      favorites,
+                      onFavoriteButtonClick,
+                      isTrackInFavorites,
+                    }}
+                  />
+                }
+              />
+              <Route
+                path="/search"
+                element={
+                  <Search
+                    {...{
+                      player,
+                      togglePlayer,
+                      queueTrackAndPlay,
+                      favorites,
+                      onFavoriteButtonClick,
+                      isTrackInFavorites,
+                    }}
+                  />
+                }
+              />
+              <Route
+                path="/"
+                element={
+                  <Home
+                    {...{
+                      player,
+                      togglePlayer,
+                      queueTrackAndPlay,
+                      favorites,
+                      onFavoriteButtonClick,
+                      isTrackInFavorites,
+                    }}
+                  />
+                }
+              />
+            </Routes>
+          </Container>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
