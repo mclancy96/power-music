@@ -14,7 +14,7 @@ function App() {
     isPlaying: false,
   });
   const [shouldPlay, setShouldPlay] = useState(false);
-  const favoriteUrl = "http://localhost:3001/favorites/";
+  const favoriteUrl = process.env.REACT_APP_DB_URL + "favorites/";
   const [favorites, setFavorites] = useState([]);
   const isTrackInFavorites = (track) => {
     return favorites.find(
