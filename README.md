@@ -2,17 +2,19 @@
 
 Power Music is a simple and interactive music discovery app powered by the [Jamendo API](https://developer.jamendo.com/v3.0/docs). Users can search royalty-free music, preview tracks, save favorites, and share their discoveries—all from a sleek, user-friendly interface.
 
+**[Render URL](https://power-music.onrender.com/)**
+
 ---
 
 ## 🚀 Features
 
 ### MVP
 
-- [x] 🔍 **Search for Music** – Enter keywords to explore royalty-free tracks by title, artist, or genre.
-- [x] ▶️ **Play Music Previews** – Stream 30-second audio previews directly from search results.
-- [x] 💾 **Save Favorites** – Save and revisit your favorite tracks across sessions.
-- [x] 🔗 **Shareable Song Links** – Share songs with friends via direct or generated links.
-- [x] 🧮 **Sort Search Results** – Sort music by popularity, release date, or duration using Jamendo API parameters.
+- [X] 🔍 **Search for Music** – Enter keywords to explore royalty-free tracks by title, artist, or genre.
+- [X] ▶️ **Play Music Previews** – Stream 30-second audio previews directly from search results.
+- [X] 💾 **Save Favorites** – Save and revisit your favorite tracks across sessions.
+- [X] 🔗 **Shareable Song Links** – Share songs with friends via direct or generated links.
+- [X] 🧮 **Sort Search Results** – Sort music by popularity, release date, or duration using Jamendo API parameters.
 
 ### Stretch Goals
 
@@ -21,7 +23,7 @@ Power Music is a simple and interactive music discovery app powered by the [Jame
 - [ ] 🎛️ **Mini Audio Player** – A persistent audio player with playback controls.
 - [ ] 🌗 **Light/Dark Theme Toggle** – Switch between light and dark UI themes (saved in localStorage).
 - [ ] ⌨️ **Keyboard Navigation & Shortcuts** – Use keyboard controls for an efficient experience.
-- [x] ❤️ **Add Favorites Page** – View and manage your favorites on one page.
+- [X] ❤️ **Add Favorites Page** – View and manage your favorites on one page.
 - [ ] ❤️ **Display Today's Top Hits** – View today's top tracks on the home page.
 
 ---
