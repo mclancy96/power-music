@@ -174,7 +174,21 @@ function App() {
                 />
               }
             />
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  {...{
+                    player,
+                    togglePlayer,
+                    queueTrackAndPlay,
+                    favorites,
+                    onFavoriteButtonClick,
+                    isTrackInFavorites,
+                  }}
+                />
+              }
+            />
           </Routes>
         </Container>
       </div>
