@@ -160,6 +160,12 @@ function App() {
     setPlayer((prevPlayer) => ({ ...prevPlayer, track, audio: {} }));
     setShouldPlay(true);
   };
+
+  useEffect(() => {
+    fetch("https://power-music-backend.onrender.com/").then(
+      console.log("Waking up backend"),
+    );
+  });
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
