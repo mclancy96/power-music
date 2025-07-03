@@ -165,7 +165,7 @@ function App() {
     fetch("https://power-music-backend.onrender.com/").then(
       console.log("Waking up backend"),
     );
-  });
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
